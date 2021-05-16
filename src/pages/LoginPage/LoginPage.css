@@ -1,0 +1,137 @@
+/* Background Wallpaper Properties */
+.Login {
+  width: 1440px;
+  height: 900px;
+  margin: 0 0 0 0;
+  background-image: url("../../assets/Dashboard-App-Wallpaper.png");
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center center;
+}
+
+/* Login Card Properties */
+.Login .card {
+  width: 957px;
+  height: 546px;
+  left: 229px;
+  top: 227px;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.Login Form {
+  margin: 0 auto;
+  max-width: 397px;
+}
+
+/* Font Properties */
+.Login .h2 {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 50px;
+  line-height: 59px;
+  /* identical to box height */
+  text-align: center;
+  color: #2cb6bf;
+  padding-top: 46px;
+}
+
+.Login .h3 {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  padding-bottom: 80px;
+}
+
+.Login .h4 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+  text-align: center;
+  color: #959696;
+}
+
+/* Log In Button Properties (Big button) */
+.Login .card .submit-button {
+  margin-top: 40px;
+  background-color: #2cb6bf;
+  border-color: #2cb6bf;
+  width: 100%;
+  border-radius: 10px;
+  line-height: 35px;
+  height: 54px;
+  font-size: 30px;
+}
+
+/* Sign Up Button Properties (Small Link Button)*/
+.Login .ant-btn.sign-up-button.ant-btn-link.ant-btn-sm {
+  color: #1EA896;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px; 
+}
+
+.Login .ant-btn.sign-up-button.ant-btn-link.ant-btn-sm:hover {
+  color: #1890ff;
+}
+
+/* Email-ID Input Properties */
+.Login .email-input{
+  border-top-style: hidden;
+  border-left-style: hidden;
+  border-right-style: hidden;
+  background: rgba(255, 255, 255, 0);
+  border-color: #2CB6BF;
+  height: 54px;
+  border-bottom-width: 3px;
+}
+
+.Login .email-input .ant-input{
+  color: #2CB6BF;
+  background: rgba(255, 255, 255, 0);
+  font-size: 23px;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.Login .email-input .ant-input-prefix{
+  color: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0);
+  margin-right: 15px;
+  font-size: 30px;
+}
+
+/* Password Input Properties */
+
+.Login .password-input{
+  border-top-style: hidden;
+  border-left-style: hidden;
+  border-right-style: hidden;
+  border-color: #C4C4C4;
+  border-bottom-width: 1.5px;
+  background: rgba(255, 255, 255, 0);
+  height: 54px;
+}
+
+.Login .password-input .ant-input-prefix{
+  color: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0);
+  margin-right: 15px;
+  font-size: 30px;
+}
+
+.Login .password-input .ant-input{
+  color: #2CB6BF;
+  background: rgba(255, 255, 255, 0);
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.Login .password-input .ant-input-suffix{
+  color: rgba(0, 0, 0, 0.6);
+  background: rgba(255, 255, 255, 0);
+  font-size: 20px;
+}
