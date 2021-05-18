@@ -1,4 +1,6 @@
 /* Background Wallpaper Properties */
+@import '~antd/dist/antd.css';
+
 .Login {
   width: 1440px;
   height: 900px;
