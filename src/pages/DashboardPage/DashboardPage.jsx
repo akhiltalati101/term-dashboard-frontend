@@ -5,11 +5,12 @@ import {
   Grid
 } from '@material-ui/core';
 import ProgressCard from '../../common/DashboardComponents/ProgressCard';
-import { Progress } from 'antd';
+import DeadlineList from '../../common/DashboardComponents/DeadlineList';
+import TotalDeadlinesCard from '../../common/DashboardComponents/TotalDeadlinesCard';
 const Dashboard = () => (
   <>
     <Helmet>
-      <title>Dashboard | Material Kit</title>
+      <title>Dashboard</title>
     </Helmet>
     <Box
       sx={{
@@ -19,7 +20,7 @@ const Dashboard = () => (
       }}
     >
       <Container maxWidth={false}>
-        <Grid
+      <Grid
           container
           spacing={3}
         >
@@ -30,7 +31,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <ProgressCard />
+            <TotalDeadlinesCard sx={{ height: '100%' }}/>
           </Grid>
           <Grid
             item
@@ -39,7 +40,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <ProgressCard />
+            <ProgressCard sx={{ height: '100%' }}/>
           </Grid>
           <Grid
             item
@@ -48,7 +49,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <ProgressCard />
+            <ProgressCard sx={{ height: '100%' }}/>
           </Grid>
           <Grid
             item
@@ -57,7 +58,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <ProgressCard />
+            <TotalDeadlinesCard sx={{ height: '100%' }} />
           </Grid>
           <Grid
             item
@@ -66,7 +67,7 @@ const Dashboard = () => (
             xl={9}
             xs={12}
           >
-            <ProgressCard />
+            <TotalDeadlinesCard sx={{ height: '100%' }} />
           </Grid>
           <Grid
             item
@@ -75,7 +76,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <ProgressCard/>
+            <TotalDeadlinesCard sx={{ height: '100%' }} />
           </Grid>
           <Grid
             item
@@ -84,7 +85,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <ProgressCard />
+            <TotalDeadlinesCard sx={{ height: '100%' }} />
           </Grid>
           <Grid
             item
@@ -93,7 +94,7 @@ const Dashboard = () => (
             xl={9}
             xs={12}
           >
-            <ProgressCard />
+            <DeadlineList />
           </Grid>
         </Grid>
       </Container>
