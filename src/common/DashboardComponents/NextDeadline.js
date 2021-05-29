@@ -1,28 +1,36 @@
-import { Avatar, Card, CardContent, Grid, Typography } from "@material-ui/core";
-import { blue } from "@material-ui/core/colors";
-import WorkIcon from "@material-ui/icons/Work";
+import {
+  Avatar,
+  Card,
+  CardContent,
+  Grid,
+  Typography,
+} from "@material-ui/core";
+import { red } from "@material-ui/core/colors";
+import AccessAlarmIcon from "@material-ui/icons/AccessAlarm";
+import CountdownTimer from "./CountdownTimer";
 
-const TotalDeadlinesCard = (props) => (
+const NextDeadline = (props) => (
   <Card {...props}>
     <CardContent>
       <Grid container spacing={3} sx={{ justifyContent: "space-between" }}>
         <Grid item>
           <Typography color="textSecondary" gutterBottom variant="h6">
-            TOTAL DEADLINES
+            NEXT DEADLINE
           </Typography>
           <Typography color="textPrimary" variant="h3">
-            4
+            {/* <CountdownTimer dueAt={"2021-06-05 19:30"} /> */}
+            7 days
           </Typography>
         </Grid>
         <Grid item>
           <Avatar
             sx={{
-              backgroundColor: blue[600],
+              backgroundColor: red[600],
               height: 56,
               width: 56,
             }}
           >
-            <WorkIcon />
+            <AccessAlarmIcon />
           </Avatar>
         </Grid>
       </Grid>
@@ -30,4 +38,4 @@ const TotalDeadlinesCard = (props) => (
   </Card>
 );
 
-export default TotalDeadlinesCard;
+export default NextDeadline;

@@ -104,7 +104,7 @@ const DeadlineList = (props) => (
                   {moment(deadline.dueAt).format("MMMM Do YYYY, h:mm a")}
                 </TableCell>
                 <TableCell>
-                  <CountdownTimer dueAt={deadline.dueAt} />
+                  {moment().isAfter(moment(deadline.dueAt, "YYYY/MM/DD HH:mm"))? 'Overdue' : <CountdownTimer dueAt={deadline.dueAt} />}
                 </TableCell>
               </TableRow>
             ))}

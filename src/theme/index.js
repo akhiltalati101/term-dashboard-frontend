@@ -18,8 +18,8 @@ const theme = createTheme({
       secondary: '#6b778c'
     }
   },
+  typography,
   shadows,
-  typography
 });
 
 export default theme;
