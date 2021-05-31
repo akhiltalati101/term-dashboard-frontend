@@ -18,16 +18,3 @@ function App() {
 }
 
 export default App;
-
-// import StyledEngineProvider from "@material-ui/core/StyledEngineProvider";
-// import { StylesProvider, jssPreset } from "@material-ui/styles";
-// import { create } from "jss";
-// import rtl from "jss-rtl";
-
-// const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
-
-// <StyledEngineProvider injectFirst>
-// <StylesProvider jss={jss}>
-
-// </StylesProvider>
-// </StyledEngineProvider>

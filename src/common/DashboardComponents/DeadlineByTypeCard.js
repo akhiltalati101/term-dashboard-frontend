@@ -9,9 +9,10 @@ import {
   colors,
   useTheme
 } from '@material-ui/core';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-import PhoneIcon from '@material-ui/icons/Phone';
-import TabletIcon from '@material-ui/icons/Tablet';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import LaptopIcon from '@material-ui/icons/Laptop';
+import BookIcon from '@material-ui/icons/Book';
+import CreateIcon from '@material-ui/icons/Create';
 
 const DeadlineByType = (props) => {
   const theme = useTheme();
@@ -19,18 +20,19 @@ const DeadlineByType = (props) => {
   const data = {
     datasets: [
       {
-        data: [63, 15, 22],
+        data: [33, 15, 22, 30],
         backgroundColor: [
-          colors.indigo[500],
+          colors.blue[600],
           colors.red[600],
-          colors.orange[600]
+          colors.orange[600],
+          colors.lightGreen[600]
         ],
         borderWidth: 8,
         borderColor: colors.common.white,
         hoverBorderColor: colors.common.white
       }
     ],
-    labels: ['Assignment', 'Test', 'Reading', 'Group']
+    labels: ['Assignment', 'Exam', 'Lecture', 'Reading']
   };
 
   const options = {
@@ -57,28 +59,34 @@ const DeadlineByType = (props) => {
 
   const devices = [
     {
-      title: 'Desktop',
-      value: 63,
-      icon: LaptopMacIcon,
-      color: colors.indigo[500]
+      title: 'Assignment',
+      value: 33,
+      icon: AssignmentIcon,
+      color: colors.blue[600]
     },
     {
-      title: 'Tablet',
+      title: 'Exam',
       value: 15,
-      icon: TabletIcon,
+      icon: CreateIcon,
       color: colors.red[600]
     },
     {
-      title: 'Mobile',
+      title: 'Lecture',
       value: 23,
-      icon: PhoneIcon,
+      icon: LaptopIcon,
       color: colors.orange[600]
-    }
+    },
+    {
+      title: 'Reading',
+      value: 30,
+      icon: BookIcon,
+      color: colors.lightGreen[600]
+    },
   ];
 
   return (
     <Card {...props}>
-      <CardHeader title="Traffic by Device" />
+      <CardHeader title="Deadline By Type" />
       <Divider />
       <CardContent>
         <Box

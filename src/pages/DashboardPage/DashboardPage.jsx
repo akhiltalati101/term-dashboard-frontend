@@ -8,6 +8,7 @@ import ProgressCard from '../../common/DashboardComponents/ProgressCard';
 import DeadlineList from '../../common/DashboardComponents/DeadlineList';
 import TotalDeadlinesCard from '../../common/DashboardComponents/TotalDeadlinesCard';
 import NextDeadline from '../../common/DashboardComponents/NextDeadline';
+import DeadlineByType from '../../common/DashboardComponents/DeadlineByTypeCard';
 const Dashboard = () => (
   <>
     <Helmet>
@@ -77,7 +78,7 @@ const Dashboard = () => (
             xl={3}
             xs={12}
           >
-            <TotalDeadlinesCard sx={{ height: '100%' }} />
+            <DeadlineByType sx={{ height: '100%' }} />
           </Grid>
           <Grid
             item
