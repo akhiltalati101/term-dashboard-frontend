@@ -3,6 +3,8 @@ import { Form, Input, Button, Card } from "antd";
 import { LockFilled, UserOutlined } from "@ant-design/icons";
 import "./LoginPage.css";
 
+const axios = require('axios');
+
 const values = {
   log: {
     email: "",
@@ -22,10 +24,29 @@ const values = {
 const LoginPage = () => {
   //   const [email, setEmail] = useState("");
   //   const [password, setPassword] = useState("");
-  const [pageState, setPageState] = useState("log");
+  const [pageState, setPageState] = useState("sign");
 
   const onFinish = (values) => {
     console.log("Success:", values);
+    if (pageState === "sign") {
+      var formValues = new FormData();
+      formValues.append("username", values.email);
+      formValues.append("password", values.password);
+      axios({
+        method: "post",
+        url: "/user/signup/",
+        data: formValues,
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+        .then(function (response) {
+          //handle success
+          console.log(response);
+        })
+        .catch(function (response) {
+          //handle error
+          console.log("Error ", response);
+        });
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
