@@ -1,7 +1,8 @@
 const Logo = (props) => (
   <img
     alt="Logo"
-    // src="/"
+    src="/logo.png"
+    style={{'maxWidth': '50px'}}
     {...props}
   />
 );
