@@ -4,13 +4,14 @@ import DashboardLayout from './common/DashboardLayout';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
 import NotFound from './pages/NotFound';
 import LoginPage from './pages/LoginPage/LoginPage';
+import { isAuthed } from './utils/auth'
 
 const routes = [
   {
     path: 'app',
     element: <DashboardLayout />,
     children: [
-      { path: 'dashboard', element: <DashboardPage /> },
+      { path: 'dashboard', element: isAuthed()? <DashboardPage /> : <Navigate to="/login" />},
       { path: '*', element: <Navigate to="/404" /> }
     ]
   },
