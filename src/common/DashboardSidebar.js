@@ -15,9 +15,11 @@ import {
   Lock as LockIcon,
   Settings as SettingsIcon,
   User as UserIcon,
-  Plus as PlusIcon
+  Plus as PlusIcon,
+  LogOut as LogOutIcon
 } from 'react-feather';
 import NavItem from './NavItem';
+import LogoutButton from './LogoutButton';
 
 const user = {
   avatar: '',
@@ -112,6 +114,12 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
               icon={item.icon}
             />
           ))}
+          <LogoutButton 
+            href={"/login"}
+            key={"LogOut"}
+            title={"LogOut"}
+            icon={LogOutIcon}
+          />
         </List>
       </Box>
       <Box sx={{ flexGrow: 1 }} />
