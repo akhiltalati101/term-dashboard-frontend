@@ -5,6 +5,7 @@ import { Form, Input, Button, Card } from "antd";
 import { LockFilled, UserOutlined } from "@ant-design/icons";
 import "./LoginPage.css";
 import { login, logout } from "../../store/token";
+import { getDeadlines } from "../../store/deadlines";
 
 // const axios = require("axios");
 
@@ -32,6 +33,8 @@ const LoginPage = () => {
   const onFinish = (values) => {
     console.log("Success:", values);
     dispatch(login({ username: values.email, password: values.password }));
+    // dispatch(populateDeadline());
+    dispatch (getDeadlines())
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { populateDeadline } from "./deadlines";
 const axios = require("axios");
 
 const initialToken = localStorage.getItem("token")
@@ -15,7 +16,7 @@ const checkToken = createSlice({
   reducers: {
     loginSuccess: (state, action) => {
       console.log("action-payload: ", action.payload);
-      state.token = action.payload;
+      state.token = action.payload.token;
       localStorage.setItem("token", action.payload.token);
     },
     logoutSuccess: (state, action) => {

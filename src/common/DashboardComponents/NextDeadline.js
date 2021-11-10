@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+import moment from "moment";
 import {
   Avatar,
   Card,
@@ -9,7 +11,13 @@ import { red } from "@material-ui/core/colors";
 import AccessAlarmIcon from "@material-ui/icons/AccessAlarm";
 import CountdownTimer from "./CountdownTimer";
 
-const NextDeadline = (props) => (
+const NextDeadline = (props) => {
+  const {deadlines} = useSelector((state) => state.deadlines);
+  var nextDeadline = null
+  if (deadlines && deadlines !== null) {
+    nextDeadline = deadlines.length > 0 ? deadlines[0] : null
+  }
+  return (
   <Card {...props}>
     <CardContent>
       <Grid container spacing={3} sx={{ justifyContent: "space-between" }}>
@@ -18,8 +26,7 @@ const NextDeadline = (props) => (
             NEXT DEADLINE
           </Typography>
           <Typography color="textPrimary" variant="h3">
-            {/* <CountdownTimer dueAt={"2021-06-05 19:30"} /> */}
-            7 days
+            {nextDeadline !== null? <CountdownTimer dueAt={moment(nextDeadline.dueAt)} /> : "NA"}
           </Typography>
         </Grid>
         <Grid item>
@@ -37,5 +44,6 @@ const NextDeadline = (props) => (
     </CardContent>
   </Card>
 );
+          }
 
 export default NextDeadline;
