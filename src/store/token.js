@@ -1,13 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { populateDeadline } from "./deadlines";
+import TokenService from "../utils/tokenHelper";
 const axios = require("axios");
 
-const initialToken = localStorage.getItem("token")
-  ? localStorage.getItem("token")
-  : null;
+const {
+  getLocalRefreshToken,
+  getLocalAccessToken,
+  setToken,
+  setRefreshToken,
+  removeToken,
+  removeRefreshToken,
+} = TokenService;
+
+const initialToken = getLocalAccessToken()
+const initialRefreshToken = getLocalRefreshToken()
 
 export const initialState = {
   token: initialToken,
+  refreshToken: initialRefreshToken,
 };
 
 const checkToken = createSlice({
@@ -17,12 +27,15 @@ const checkToken = createSlice({
     loginSuccess: (state, action) => {
       console.log("action-payload: ", action.payload);
       state.token = action.payload.token;
-      localStorage.setItem("token", action.payload.token);
+      state.refreshToken = action.payload.refreshToken
+      setToken(action.payload.token)
+      setRefreshToken(action.payload.refreshToken)
     },
     logoutSuccess: (state, action) => {
       console.log("action-payload: ", action.payload);
       state.token = "";
-      localStorage.removeItem("token");
+      removeToken();
+      removeRefreshToken();
       console.log("logout state", state);
       console.log("logout localstorage", localStorage);
     },
@@ -50,6 +63,7 @@ export const login =
           loginSuccess({
             username: username,
             token: response.data.access_token,
+            refreshToken: response.data.refresh_token
           })
         );
       })

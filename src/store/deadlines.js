@@ -1,37 +1,41 @@
 import { TramRounded } from "@material-ui/icons";
+import { logout } from "./token";
+import { useDispatch } from "react-redux";
 import {
   createAsyncThunk,
   createSlice,
   createSelector,
   PayloadAction,
 } from "@reduxjs/toolkit";
-const axios = require("axios");
+import axiosInstance from "../utils/axiosInterceptors";
+// const axios = require("axios");
+import TokenService from "../utils/tokenHelper";
+
+const {
+  getLocalRefreshToken,
+  getLocalAccessToken,
+  setToken,
+  setRefreshToken,
+  removeToken,
+  removeRefreshToken,
+} = TokenService;
 
 export const getDeadlines = createAsyncThunk(
   "user/deadlines",
   async (_, thunkAPI) => {
     try {
-      const token = localStorage.getItem("token")
-        ? localStorage.getItem("token")
-        : null;
+      const token = getLocalAccessToken()
+      console.log("get deadline token value :: ", token)
       if (token && token !== null) {
-        const response = await axios({
+        const response = await axiosInstance({
           method: "get",
           url: "/user/deadlines/",
           headers: { Authorization: `Bearer ${token}` },
         })
-          .then(function (response) {
-            //handle success
-            console.log("deadline get response: ", response);
-            return response.data.deadlines;
-          })
-          .catch(function (response) {
-            //handle error
-            console.log("Error ", response);
-          });
-        return await response;
+        return await response.data.deadlines;
       }
     } catch (e) {
+      console.log(e)
       return thunkAPI.rejectWithValue({ error: e.message });
     }
   }
@@ -68,6 +72,7 @@ const updateDeadline = createSlice({
       state.hasError = false;
     });
     builder.addCase(getDeadlines.rejected, (state, action) => {
+      console.log("getdeadline rejected ", action.payload)
       state.loading = false;
       state.hasError = true;
     });
